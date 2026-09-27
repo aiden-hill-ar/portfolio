@@ -1,0 +1,345 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Hanuman", Georgia;
+}
+
+:root {
+   --purple: oklch(0.55 0.169 292.579);
+   --blue-purple: oklch(0.55 0.169 270.951);
+   --blue: oklch(0.55 0.169 253.402);
+   --purple-pink: oklch(0.55 0.169 317.152);
+   --red: oklch(0.55 0.169 20.103);
+   --orange: oklch(0.55 0.169 37.19);
+   --pink: oklch(0.55 0.169 0.772);
+   --green: oklch(0.55 0.169 146.943);
+   --jungle-green: oklch(0.55 0.169 137.674);
+
+   --theme-color: var(--blue);
+   --theme-shadow: 0.55 0.169 253.402;
+
+   --spring: linear(0, 0.034 1.2%, 0.133 2.5%, 0.726 7.6%, 0.942 9.9%, 1.084 12.3%, 1.123 13.5%, 1.146 14.8%, 1.152 16.1%, 1.142 17.6%, 1.013 25.5%, 0.989 28%, 0.978 30.7%, 1.003 46.4%, 1);
+   --ease-start: cubic-bezier(0.158, 0.264, 0, 0.993);
+   --ease-end: cubic-bezier(0.85, 0.09, 0.15, 0.91);
+
+   --shadow-elevation-low:
+      0.3px 0.5px 0.7px oklch(var(--theme-shadow) / 0.1),
+      0.4px 0.8px 1px -1.2px oklch(var(--theme-shadow) / 0.1),
+      1px 2px 2.5px -2.5px oklch(var(--theme-shadow) / 0.1);
+  --shadow-elevation-medium:
+      0.3px 0.5px 0.7px oklch(var(--theme-shadow) / 0.11),
+      0.8px 1.6px 2px -0.8px oklch(var(--theme-shadow) / 0.11),
+      2.1px 4.1px 5.2px -1.7px oklch(var(--theme-shadow) / 0.11),
+      5px 10px 12.6px -2.5px oklch(var(--theme-shadow) / 0.11);
+  --shadow-elevation-high:
+      0.3px 0.5px 0.7px oklch(var(--theme-shadow) / 0.1),
+      1.5px 2.9px 3.7px -0.4px oklch(var(--theme-shadow) / 0.1),
+      2.7px 5.4px 6.8px -0.7px oklch(var(--theme-shadow) / 0.1),
+      4.5px 8.9px 11.2px -1.1px oklch(var(--theme-shadow) / 0.1),
+      7.1px 14.3px 18px -1.4px oklch(var(--theme-shadow) / 0.1),
+      11.2px 22.3px 28.1px -1.8px oklch(var(--theme-shadow) / 0.1),
+      17px 33.9px 42.7px -2.1px oklch(var(--theme-shadow) / 0.1),
+      25px 50px 62.9px -2.5px oklch(var(--theme-shadow) / 0.1);
+}
+
+body {
+   background: repeating-linear-gradient(
+      -45deg,
+      oklch(from var(--theme-color) calc(l + 0.35) calc(c * 0.3) h),
+      oklch(from var(--theme-color) calc(l + 0.35) calc(c * 0.3) h) 40px,
+      oklch(from var(--theme-color) calc(l - 0.2) calc(c * 0.5) h) 40px,
+      oklch(from var(--theme-color) calc(l - 0.2) calc(c * 0.5) h) 67.2px
+   );
+}
+
+/* --------------------------------- header --------------------------------- */
+
+header {
+   display: flex;
+   width: fit-content;
+   margin: 20px;
+   padding: 10px 10px 0px 10px;
+   border-radius: 10px;
+   backdrop-filter: blur(16px); 
+   background-color: oklch(from var(--theme-color) calc(l - 0.2) calc(c * 0.5) h / 0.7);
+   box-shadow: 
+      0.3px 0.5px 0.7px oklch(var(--theme-shadow) / 0.1),
+      1.5px 2.9px 3.7px -0.4px oklch(var(--theme-shadow) / 0.1),
+      2.7px 5.4px 6.8px -0.7px oklch(var(--theme-shadow) / 0.1),
+      4.5px 8.9px 11.2px -1.1px oklch(var(--theme-shadow) / 0.1),
+      7.1px 14.3px 18px -1.4px oklch(var(--theme-shadow) / 0.1),
+      11.2px 22.3px 28.1px -1.8px oklch(var(--theme-shadow) / 0.1),
+      17px 33.9px 42.7px -2.1px oklch(var(--theme-shadow) / 0.1),
+      25px 50px 62.9px -2.5px oklch(var(--theme-shadow) / 0.1);
+}
+header h1 {
+   color: oklch(from var(--theme-color) calc(l + 0.2) calc(c * 0.5) h);
+   font-size: 58px;
+   mask-image: linear-gradient(
+      to bottom,
+      white 30%,
+      transparent
+   );
+}
+header span {
+   animation: blink 2s step-end infinite;
+}
+
+/* -------------------------------- dark mode ------------------------------- */
+
+button {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  background: hsl(0deg 0% 0% / 0.25);
+  transform: translateY(2px);
+}
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  background: oklch(0.45 0.169 20.103);
+}
+.front {
+  display: block;
+  position: relative;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-size: 1.25rem;
+  color: white;
+  background: var(--red);
+  transform: translateY(-4px);
+}
+
+@media (hover: hover) {
+   button:hover .front {
+  transform: translateY(-5px);
+   }
+   button:hover .shadow {
+   transform: translateY(3px);
+   }
+}
+button:active .front {
+  transform: translateY(-2px);
+}
+button:active .shadow {
+  transform: translateY(1px);
+}
+button svg {
+   height: 24px;
+   width: 24px;
+   fill: none;
+   stroke: black;
+   stroke-width: 2px;
+   stroke-linecap: round;
+   stroke-linejoin: round;
+}
+
+/* ----------------------------- content & cloud ---------------------------- */
+
+.cloud-content-wrapper {
+   animation: fade-in 500ms var(--ease-end) 1;
+}
+.cloud {
+   height: 100px;
+   background-image: url("./svgs/cloud.svg");
+   background-size: auto 100px;
+   background-repeat: repeat;
+}
+
+.content {
+   position: relative;
+   display: flex;
+   gap: 10px;
+   flex-direction: column;
+   align-items: center;
+   background-color: white;
+   background: repeating-linear-gradient(
+      -45deg,
+      oklch(from var(--blue) calc(l + 0.35) calc(c * 0.3) h),
+      oklch(from var(--blue) calc(l + 0.35) calc(c * 0.3) h) 40px,
+      white 40px,
+      white 67.2px
+   );
+}
+
+/* ---------------------------------- bars ---------------------------------- */
+
+.content .bar {
+   position: sticky;
+   top: 0;
+   height: 50px;
+   width: 100%;
+   background-color: white;
+   mask-image: linear-gradient(
+      to bottom,
+      white 0%,
+      transparent
+   );
+   z-index: 2;
+}
+
+/* --------------------------------- sections -------------------------------- */
+
+.section-container {
+   display: flex;
+   justify-content: space-around;
+   flex: 1;
+   width: 100%;
+   view-timeline: --section;
+}
+
+section {
+   flex: 1;
+   background-color: oklch(from var(--blue) calc(l + 0.3) calc(c * 0.3) h / 0.9);
+   border-radius: 20px;
+   border: 3px solid var(--blue);
+   padding: 10px;
+   backdrop-filter: blur(16px);
+}
+.section-backdrop {
+   display: flex;
+   max-width: 800px;
+   height: 700px;
+   flex: 1;
+   margin: 0 20px;
+   border-radius: 20px;
+   background: repeating-linear-gradient(
+      -45deg,
+      oklch(from var(--blue) calc(l - 0.2) calc(c * 0.5) h),
+      oklch(from var(--blue) calc(l - 0.2) calc(c * 0.5) h) 40px,
+      oklch(from var(--blue) calc(l + 0.35) calc(c * 0.3) h) 40px,
+      oklch(from var(--blue) calc(l + 0.35) calc(c * 0.3) h) 67.2px
+   );
+   animation: fade-in linear both;
+   animation-timeline: view();
+   animation-range: cover 0% cover 25%;
+}
+section h2 {
+   font-size: 2em;
+   color: var(--blue);
+   mask-image: linear-gradient(
+      to bottom,
+      white 30%,
+      transparent
+   );
+}
+section p {
+   animation: transparency linear both;
+   animation-timeline: --section;
+}
+section .color-shift {
+   color: var(--blue);
+   animation: color-shift 8s linear infinite both;
+}
+
+/* -------------------------------- side info ------------------------------- */
+
+p.side {
+   position: sticky;
+   align-self: flex-start;
+   top: 20px;
+   left: 10px;
+   animation: slide-in-out linear both;
+   animation-timeline: --section;
+   border-radius: 10px;
+   padding: 5px 7px;
+   background-color: oklch(from var(--blue) calc(l + 0.3) calc(c * 0.3) h / 0.7);
+   backdrop-filter: blur(4px);
+}
+.s-w-backdrop {
+   display: flex;
+   max-width: 320px;
+   flex: 1;
+   margin-left: 10px;
+   border-radius: 10px;
+   background: repeating-linear-gradient(
+      -45deg,
+      oklch(from var(--theme-color) calc(l + 0.35) calc(c * 0.3) h),
+      oklch(from var(--theme-color) calc(l + 0.35) calc(c * 0.3) h) 40px,
+      oklch(from var(--theme-color) calc(l - 0.2) calc(c * 0.5) h) 40px,
+      oklch(from var(--theme-color) calc(l - 0.2) calc(c * 0.5) h) 67.2px
+   );
+      z-index: 3;
+}
+.side-wrapper {
+   max-width: 320px;
+   flex: 1;
+   justify-content: center;
+   border-radius: 10px;
+   border: 3px solid var(--blue);
+   padding: 10px;
+   background-color: oklch(from var(--blue) calc(l + 0.1) calc(c * 0.5) h / 0.9);
+   backdrop-filter: blur(16px);
+   box-shadow:
+      0.3px 0.5px 0.7px oklch(var(--blue) / 0.1),
+      1.5px 2.9px 3.7px -0.4px oklch(var(--blue) / 0.1),
+      2.7px 5.4px 6.8px -0.7px oklch(var(--blue) / 0.1),
+      4.5px 8.9px 11.2px -1.1px oklch(var(--blue) / 0.1),
+      7.1px 14.3px 18px -1.4px oklch(var(--blue) / 0.1),
+      11.2px 22.3px 28.1px -1.8px oklch(var(--blue) / 0.1),
+      17px 33.9px 42.7px -2.1px oklch(var(--blue) / 0.1),
+      25px 50px 62.9px -2.5px oklch(var(--blue) / 0.1);
+}
+
+@keyframes blink {
+   50% { opacity: 0; }
+}
+@keyframes fade-in {
+   0% { opacity: 0; transform: translateY(10px); }
+   100% { opacity: 1; transform: translateY(0px); }
+}
+@keyframes slide-in-out {
+   0% { opacity: 0; }
+   entry 40%  { opacity: 0; }
+   entry 60% { opacity: 1; }
+   exit 70%   { opacity: 1; }
+   exit 90%  { opacity: 0; }
+   100% { opacity: 0; }
+}
+@keyframes transparency {
+   0% {
+      opacity: 0.3;
+   }
+   entry 40% {
+      opacity: 0.3;
+   }
+   entry 60% {
+      opacity: 1;
+   }
+   exit 80% {
+      opacity: 1;
+   }
+   exit 100% {
+      opacity: 0.3;
+   }
+   100% {
+      opacity: 0.3;
+   }
+}
+@keyframes color-shift {
+   0% { color: var(--blue); }
+   10% { color: var(--blue-purple); }
+   20% { color: var(--purple); }
+   30% { color: var(--purple-pink); }
+   40% { color: var(--red); }
+   50% { color: var(--orange); }
+   60% { color: var(--pink); }
+   70% { color: var(--green); }
+   80% { color: var(--jungle-green); }
+   90% { color: var(--blue); }
+}
