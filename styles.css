@@ -5,6 +5,8 @@
    font-family: "Hanuman", Georgia;
 }
 
+/* this should only be in make modern */
+
 :root {
    --purple: oklch(0.55 0.169 292.579);
    --blue-purple: oklch(0.55 0.169 270.951);
