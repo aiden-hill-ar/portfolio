@@ -1,1 +1,0 @@
-const darkButton = doc.querySelector(".dark-button");
