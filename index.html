@@ -18,47 +18,57 @@
          </header>
       </div>
       <div class="locations">
-         <p class="location about">About</p>
-         <p class="location experience">Experience</p>
-         <p class="location projects">Projects</p>
+         <p class="location about one">About</p>
+         <p class="location experience two">Experience</p>
+         <p class="location projects three">Projects</p>
       </div>
-      <p class="side-info">Hover over a section to see more info</p>
+      <p class="side-info four">Hover over a section for more info</p>
    </nav>
       <div class="content">
-         <div class="section-container">
+         <div class="section-container" id="about" data-section="about">
             <section>
                <h2 style="color: var(--purple)">Welcome To The Archive</h2>
-               <p>As the name suggests, this is where I keep a reference to my main projects. I have also tried to make this into a sort of portfolio. Enjoy the <span class="color-shift">visuals</span> prepared for you below!</p>
+               <p>Hi, my name is Aiden, I'm a front-end developer. I've been making websites for about <span class="calculated-years">1 year</span>. I first got into coding when I starting making games with Unity when I was 11. I quickly figured out that wasn't for me and two years later I picked up web development.</p>
                <br>
-               <p>Start scrolling to explore!</p>
+               <p>I try something new in every single one of my real-world projects. This is how I learn so quickly and actually remember things.</p>
+               <br>
+               <p>My hobbies outside of web development are:</p>
+               <ul>
+                  <li>Running (long-distance, 10+ mile runs)</li>
+                  <li>Making Music <a href="https://soundcloud.com/7wuppo" target="_blank">(my SoundCloud)</a></li>
+                  <li>Hiking, Biking, etc.,</li>
+               </ul>
+               <p>Anyways, enjoy the <span class="color-shift">website</span> prepared for you below!</p>
+               <p class="bottom-text">Start scrolling to explore!</p>
             </section>
          </div>
-         <div class="section-container">
+         <div class="below-about">
+         <div class="section-container" data-section="superstitions">
             <section>
-               <h2 style="color: var(--purple)">Welcome To The Archive</h2>
-               <p>As the name suggests, this is where I keep a reference to most of my projects. I have also tried to make this into a sort of portfolio. I hope you enjoy the <span class="color-shift">visuals</span> prepared for you below.</p>
-               <br>
-               <p>Start scrolling to explore!</p>
+               <h2 style="color: var(--blue)">Superstitions</h2>
+               <div class="imgs">
+                  <div class="img-container">
+                     <img src="./img/superstitions-dark-hero.png" />
+                     <p>Dark-Theme</p>
+                  </div>
+                  <div class="img-container fallback">
+                     <img src="./img/superstitions-light-hero.png" />
+                     <p>Light-Theme</p>
+                  </div>
+               </div>
+               <p class="fallback-info">Superstitions is a theme I made in April of 2026. I made it because I wanted a theme that would look good with anti-blue light glasses. It's made to be the most comfortable on my eyes so I can work for hours on end.</p>
             </section>
          </div>
-         <div class="section-container">
+         <div class="section-container" data-section="theRack">
             <section>
-               <h2 style="color: var(--purple)">Welcome To The Archive</h2>
-               <p>As the name suggests, this is where I keep a reference to most of my projects. I have also tried to make this into a sort of portfolio. I hope you enjoy the <span class="color-shift">visuals</span> prepared for you below.</p>
-               <br>
-               <p>Start scrolling to explore!</p>
+               <h2 style="color: var(--orange)">The Rack</h2>
+               <p>Text Here</p>
             </section>
          </div>
-         <div class="section-container">
-            <section>
-               <h2 style="color: var(--purple)">Welcome To The Archive</h2>
-               <p>As the name suggests, this is where I keep a reference to most of my projects. I have also tried to make this into a sort of portfolio. I hope you enjoy the <span class="color-shift">visuals</span> prepared for you below.</p>
-               <br>
-               <p>Start scrolling to explore!</p>
-            </section>
          </div>
       </div>
    <script src="./js/shortcuts.js"></script>
    <script src="./js/type-title.js"></script>
+   <script src="./js/hover-section.js"></script>
 </body>
 </html>
