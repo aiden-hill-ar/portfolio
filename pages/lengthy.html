@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <style>
+    <style>
 @view-transition { navigation: auto; }
 ::view-transition-old(shutter) {
    animation: shutter-in 1500ms var(--ease-start) forwards 1;
@@ -13,7 +13,7 @@
    z-index: 10;
 }
 ::view-transition-new(nav) {
-   transform: translateX(-100%);
+   transform: translateX(100%);
    animation: nav-slide-in 500ms var(--ease-start) forwards 1 1000ms;
    mix-blend-mode: normal;
 }
@@ -23,7 +23,7 @@
    z-index: 10;
 }
 ::view-transition-new(cards) {
-   transform: translateX(100%);
+   transform: translateX(-100%);
    animation: cards-slide-in 500ms var(--ease-start) forwards 1 1000ms;
    mix-blend-mode: normal;
 }
@@ -37,7 +37,7 @@
    to { transform: translateX(100%); }
 }
 @keyframes cards-slide-in {
-   from { transform: translateX(100%); }
+    from { transform: translateX(100%); }
    to { transform: translateX(0%); }
 }
 @keyframes shutter-in {
@@ -56,7 +56,8 @@ nav { view-transition-name: nav; }
    </style>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="./styles/styles.css">
+   <link rel="stylesheet" href="../styles/styles.css">
+   <link rel="stylesheet" href="../styles/lengthy-styles.css">
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -76,13 +77,13 @@ nav { view-transition-name: nav; }
          <div class="content-length-wrapper" id="clw">
             <div class="content-length">
                <ul>
-                  <li class="concise">
-                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="selected"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>
-                     <a class="selected" href="./index.html"><p>Concise</p></a>
+                  <li>
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>
+                     <a href="../index.html"><p>Concise</p></a>
                   </li>
                   <li class="lengthy">
-                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>
-                     <a href="./pages/lengthy.html"><p>Lengthy</p></a>
+                     <svg class="selected" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>
+                     <a class="selected" href="./lengthy.html"><p>Lengthy</p></a>
                   </li>
                </ul>
             </div>
@@ -94,7 +95,7 @@ nav { view-transition-name: nav; }
 
       <div class="links">
          <div class="my-links">
-            <a href="https://github.com/aiden-hill-ar" target="_blank"><img src="./svgs/github-logo.svg" height="32px" width="32px"></a>
+            <a href="https://github.com/aiden-hill-ar" target="_blank"><img src="../svgs/github-logo.svg" height="32px" width="32px"></a>
          </div>
          <div class="page-links">
             <p>Dynamic Links Section</p>
@@ -105,29 +106,15 @@ nav { view-transition-name: nav; }
    <div class="card-container">
       <section id="about">
          <h2 class="header">About</h2>
-         <p>Hi, my name is Aiden, I create spacious places on the internet. I'm a growing front-end engineer. I love making real world websites for a purpose to practice and gain new skills. I enjoy working through making the basics of a website and finally getting to the smooth(er) ride at the end.</p>
-         <p>I've been making websites for <span class="coding-days">some amount of</span> days now, and I don't plan on stopping! I was 15 when I made this website <span class="age"></span> and still enjoy these other hobbies besides web-dev:</p>
-         <ul>
-            <li>Running</li>
-            <li>Making music</li>
-            <li>Just building my life in general</li>
-         </ul>
-         <p>Anyways, enjoy the <span class="rainbow-shift">website!</span></p>
-         <p class="bottom-text">Scroll to start exploring!</p>
-         <p class="extra-info">About</p>
       </section>
       <section id="superstitions">
          <h2 class="header">Superstitions</h2>
-         <p>Text</p>
-         <p class="extra-info">Superstitions</p>
       </section>
       <section id="the-rack">
          <h2 class="header">The-Rack</h2>
-         <p>Text</p>
-         <p class="extra-info">The-Rack</p>
       </section>
    </div>
 
-   <script src="./js/script.js"></script>
+   <script src="../js/script.js"></script>
 </body>
 </html>
