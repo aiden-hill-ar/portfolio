@@ -98,6 +98,7 @@ body {
     grid-template-columns: minmax(min-content, max-content) 1fr minmax(min-content, max-content);
     grid-template-rows: minmax(min-content, max-content) 1fr minmax(min-content, max-content);
     padding: 24px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
     min-height: 100vh;
     z-index: 1;
 }
