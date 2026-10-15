@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter";
+}
+
+h1, h2, h3 {
+    font-family: "Aleo";
+}
+
+:root {
+    --background-gradient: oklch(0.741 0.144 0);
+
+    --background-color: oklch(0.964 0.021 56);
+
+    --red: oklch(0.757 0.157 23.239);
+    --orange: oklch(0.757 0.157 68.028);
+    --green: oklch(0.757 0.157 140.704);
+    --blue: oklch(0.757 0.157 220.986);
+    
+    --theme: var(--red);
+    --theme-text: oklch(from var(--theme) calc(l - 0.2) calc(c * 1) h);
+
+    --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
+    --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+html,
+body {
+    background-color: var(--background-color);
+}
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+/* -------------------------------- backdrop -------------------------------- */
+
+@property --x1 {
+    syntax: "<length>";
+    initial-value: 10vw;
+    inherits: false;
+}
+@property --y1 {
+    syntax: "<length>";
+    initial-value: 10vh;
+    inherits: false;
+}
+@property --x2 {
+    syntax: "<length>";
+    initial-value: 90vw;
+    inherits: false;
+}
+@property --y2 {
+    syntax: "<length>";
+    initial-value: 90vh;
+    inherits: false;
+}
+
+.backdrop {
+    transition-property: --x1, --y1, --x2, --y2;
+    transition-timing-function: var(--ease-in);
+    transition-duration: 5s;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        600px at var(--x1) var(--y1),
+        var(--theme),
+        oklch(from var(--theme) l c h / 0) 100%
+        
+    ),
+    radial-gradient(
+        600px at var(--x2) var(--y2),
+        var(--theme),
+        oklch(from var(--theme) l c h / 0) 100%
+    );
+
+    z-index: 0;
+}
+.backdrop::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--background-color);
+    opacity: 0.8;
+}
+
+/* ---------------------------------- page ---------------------------------- */
+
+.page {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(min-content, max-content) 1fr minmax(min-content, max-content);
+    grid-template-rows: minmax(min-content, max-content) 1fr minmax(min-content, max-content);
+    padding: 24px;
+    min-height: 100vh;
+    z-index: 1;
+}
+
+/* ------------------------------ header & nav ------------------------------ */
+
+header,
+nav {
+    padding: 16px;
+}
+
+/* --------------------------------- header --------------------------------- */
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+    gap: 0 4px;
+    color: var(--theme-text);
+}
+h1 {
+    font-size: 4rem;
+}
+
+/* ----------------------------------- nav ---------------------------------- */
+
+nav {
+    grid-row: 3 / 4;
+}
+nav li {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--theme-text);
+    border-bottom: 2px solid oklch(from var(--theme-text) l c h / 0.5);
+    padding: 8px 0;
+    list-style-type: none;
+    transition: border-bottom 400ms var(--ease-in);
+}
+li span.line {
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background-color: oklch(from var(--theme-text) calc(l - 0.1) c h / 0.5);
+    transition-property: width, background-color;
+    transition-duration: 400ms;
+    transition-timing-function: var(--ease-in);
+}
+li .line-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    cursor: pointer;
+    transition: gap 400ms var(--ease-in);
+}
+
+
+li:hover {
+    border-bottom: 2px solid oklch(from var(--theme-text) l c h);
+    transition: border-bottom 200ms var(--ease-out);
+}
+li .line-link:hover {
+    gap: 16px;
+    transition: gap 200ms var(--ease-out);
+}
+.line-link:hover span.line {
+    width: 60px;
+    background-color: oklch(from var(--theme-text) calc(l - 0.1) c h);
+    transition-duration: 200ms;
+    transition-timing-function: var(--ease-out);
+}
+
+.github-logo {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    align-self: end;
+    width: 32px;
+    height: 32px;
+    margin: 16px;
+    fill: oklch(from var(--theme) calc(l - 0.3) c h);
+}
+
+@media screen and (width <= 460px) {
+    .page {
+        padding: 8px;
+    }
+    .backdrop {
+        background: radial-gradient(
+            600px at var(--x1) var(--y1),
+            var(--theme),
+            oklch(from var(--theme) l c h / 0) 100%
+            
+        );
+    }
+}
