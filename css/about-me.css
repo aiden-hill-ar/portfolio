@@ -1,0 +1,77 @@
+/* --------------------------------- header --------------------------------- */
+
+header h1,
+header p {
+    color: var(--theme-text-transparent);
+}
+
+/* --------------------------------- @media --------------------------------- */
+
+@media screen and (width <= 900px) {
+    .about-me {
+        display: flex;
+    }
+    .about-me p:first-child {
+        margin-right: 16px;
+    }
+    .about-me p:last-child {
+        margin-left: 16px;
+    }
+}
+@media screen and (width <= 700px) {
+    .about-me {
+        display: block;
+    }
+    .about-me p:first-child {
+        margin-right: 0;
+    }
+    .about-me p:last-child {
+        margin-left: 0;
+    }
+}
+
+@media screen and (width <= 460px) {
+    nav li:not(:first-child) {
+        padding: 4px;
+        font-size: 1rem;
+    }
+}
+@media screen and (height <= 500px) {
+    header {
+        margin: 8px;
+    }
+    nav {
+        margin: 8px;
+    }
+    .content {
+        margin: 8px;
+    }
+    nav li:not(:first-child) {
+        padding: 4px;
+        font-size: 1rem;
+    }
+}
+
+/* ----------------------------- view transition ---------------------------- */
+
+@view-transition { navigation: auto; }
+.page { view-transition-name: page; }
+::view-transition-old(page) {
+    animation: fade-out 1000ms both;
+}
+::view-transition-new(page) {
+    animation: fade-in 1000ms 1500ms both;
+}
+.name { view-transition-name: name; }
+::view-transition-group(name) {
+    animation-delay: 1000ms;
+    animation-duration: 500ms;
+}
+@keyframes fade-out {
+    from { opacity: 1; transform: scale(100%); filter: blur(0px); }
+    to { opacity: 0; transform: scale(90%); filter: blur(4px); }
+}
+@keyframes fade-in {
+    from { opacity: 0; transform: scale(90%); filter: blur(4px); }
+    to { opacity: 1; transform: scale(100%); filter: blur(0px); }
+}

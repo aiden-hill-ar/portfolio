@@ -34,3 +34,18 @@ function moveGradients() {
 };
 moveGradients();
 
+/* -------------------------------- svg hover ------------------------------- */
+
+const logos = Array.from(doc.querySelectorAll(".logo"));
+
+logos.forEach(logo => {
+    logo.addEventListener("mouseenter", e => {
+        e.target.classList.add("hover");
+        setTimeout(() => {
+            e.target.classList.remove("hover");
+        }, 100);
+    });
+    logo.addEventListener("mouseleave", e => {
+        e.target.classList.remove("hover");
+    });
+});

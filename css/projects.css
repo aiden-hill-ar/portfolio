@@ -1,0 +1,14 @@
+/* --------------------------------- @media --------------------------------- */
+
+@media screen and (width <= 460px) {
+    nav li:not(:first-child) {
+        padding: 4px;
+        font-size: 1rem;
+    }
+}
+@media screen and (height <= 460px) {
+    nav li:not(:first-child) {
+        padding: 4px;
+        font-size: 1rem;
+    }
+}
